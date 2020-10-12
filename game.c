@@ -181,6 +181,21 @@ void display_result(char result) {
 		i++;
 	}
 }
+
+void display_score(int score) {
+    char char_score = score + '0';
+    char* text = "  SCORE: ";
+    text[9] = char_score;
+    text[10] = '\0';
+    tinygl_text(text);   
+
+    int i = 0;
+	while (i < 1750) {
+		pacer_wait();
+		tinygl_update();
+		i++;
+	}
+}
 	
 
 int main(void) {
@@ -196,10 +211,10 @@ int main(void) {
 			break;
 		}
 	}
+    int score = 0;
 	int player_choice = 0;
 	int previous_choice = player_choice;
 	tinygl_text(player_options[player_choice]);
-	
 	bool recieve_state = false;
 	while (1) {
 	
@@ -233,20 +248,58 @@ int main(void) {
 					int opp_choice = convert_recieved(ch);
 					char result = check_result(player_choice, opp_choice);
 					ir_uart_putc(result);
+                    if (result == 'w') {
+                        score++;
+                        if (score == 3) {
+                            break;
+                        }
+                    }
 					display_result(result);
+                    display_score(score);
 					previous_choice = -1;
-				}
+				} else if (ch == '!') {
+                    break;
+                }
 			}
 		} else {
 			if (ir_uart_read_ready_p()) {	
 				char ch = ir_uart_getc();
 				if (ch == 'l' | ch == 'd' | ch == 'w') {
 					char result = received_result(ch);
+                    if (result == 'w') {
+                        score++;
+                        if (score == 3) {
+                            break;
+                        }
+                    }
 					display_result(result);
+                    display_score(score);
 					recieve_state = false;
 					previous_choice = -1;
-				}	
+				} else if (ch == '!') {
+                    break;
+                }	
 			}
 		}
 	}
+    while (1) {
+        if (score == 3) {
+            ir_uart_putc('!');
+            tinygl_text("  CONGRATULATIONS, YOU WON!");   
+            int i = 0;
+	        while (i < 5000) {
+		        pacer_wait();
+		        tinygl_update();
+		        i++;
+	        }
+        } else {
+            tinygl_text("  HARDLUCK, YOU LOST :(");   
+            int i = 0;
+	        while (i < 5000) {
+		        pacer_wait();
+		        tinygl_update();
+		        i++;
+	        }
+        }
+    } 
 }		
