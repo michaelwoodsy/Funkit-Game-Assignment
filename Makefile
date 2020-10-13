@@ -1,6 +1,6 @@
 # File:   Makefile
 # Author: Michael Woodard and Sean Lalor
-# Date:   10 Oct 2020
+# Date:   7 Oct 2020
 # Descr:  Makefile for Rock Paper Scissors 11
 
 # Definitions.
