@@ -1,0 +1,50 @@
+Welcome to Rock Paper Scissors 11
+
+How to set up the game:
+1. Open the terminal in the folder containing Rock Paper Scissors 11,
+this can be done by right clicking inside the folder in the file directory 
+and clicking "Open in terminal".
+
+2. Once in the terminal, enter the command "make" followed by "make program"
+to begin playing Rock Paper Scissors 11. If you are using two separate computers,
+repeat steps 1 and 2 on the other computer. If you are using just one computer,
+enter "make program" again to begin Rock Paper Scissors 11 on the other Funkit.
+
+How to play the game:
+Once the game is loaded, the player is prompted with a welcoming screen to the game.
+To pass this, press down once on the navswitch.
+
+When this is done, the user is shown a "Rock Paper Scissors 11" option to select 
+which is compared against the other player to determine a winner. To change option,
+press up or down on the navswitch if the Funkit is held horizontally (i.e. east or
+west press on the navswitch).
+
+When both players have their options ready, one user must push down on the navswitch
+and the two player's inputs are compared with each other to determine a winner. The
+results can be as follows:
+ROCK beats FIRE, SCISSORS, HUMAN, WOLF and SPONGE, draws with itself and loses to all others.
+FIRE beats SCISSORS, PAPER, HUMAN, WOLF and SPONGE, draws with itself and loses to all others.
+SCISSORS beats AIR, PAPER, HUMAN, WOLF and SPONGE, draws with itself and loses to all others.
+HUMAN beats WOLF, SPONGE, PAPER, AIR and WATER, draws with itself and loses to all others.
+WOLF beats SPONGE, PAPER, AIR, WATER and DEVIL, draws with itself and loses to all others.
+SPONGE beats PAPER, AIR, WATER, DEVIL and GUN, draws with itself and loses to all others.
+PAPER beats AIR, ROCK, WATER, DEVIL and GUN, draws with itself and loses to all others.
+AIR beats FIRE, ROCK, WATER, DEVIL, GUN, draws with itself and loses to all others.
+WATER beats DEVIL, ROCK, FIRE, SCISSORS and GUN, draws with itself and loses to all others.
+DEVIL beats ROCK, FIRE, SCISSORS, GUN and HUMAN, draws with itself and loses to all others.
+GUN beats ROCK, FIRES, SCISSORS, HUMAN and WOLF, draws with itself and loses to all others.
+
+A graphical representation of the options and their outcomes against others can be found here:
+https://umop.com/rps11.htm
+
+Dependent on the outcome, the player is prompted with either: "WIN", "DRAW" or "LOSS. This
+is then followed up with the player's current score.
+
+The game is played until one of the players' score reaches 3 points. Once this occurs, the player
+is prompted with either: "CONGRATS, YOU WON!" or "HARD LUCK, YOU LOST".
+
+After the game is ended, Rock Paper Scissors 11 restarts again at the welcoming screen, and 
+players can choose to play again if they wish by pressing down on the navswitch and restarting
+the process.
+
+Have fun playing Rock Paper Scissors 11!
