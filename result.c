@@ -1,23 +1,22 @@
-/** @file   game.c
+/** @file   result.c
     @author Michael Woodard and Sean Lalor
-    @date   7 Oct 2020
-    @note   does nothing
+    @date   10 Oct 2020
+    @brief  This is used to compare the two player's
+            options to determine a winner.
 */
 
+
 #include "system.h"
-#include "tinygl.h"
-#include "navswitch.h"
-#include "pacer.h"
-#include "ir_uart.h"
-#include "pio.h"
-#include "../fonts/font3x5_1.h"
-#include "text_output.h"
-#include "game_setup.h"
 
-#define PACER_RATE 500
-
+/* Compares the player's choice with his/her opponents choice
+   to determine a winner. Each int corresponds to a certain 
+   option, which can be seen in the player_options struct in
+   game.c. Explanation on which options win/lose to other options
+   is in the README. A character 'w', 'd', or 'l is returned 
+   corresponding to a win, draw or loss. */
 char check_result(int player_choice, int opponent_choice) {
     int oc = opponent_choice;
+
 	if (player_choice == oc) {
 		return 'd';
 	} else if (player_choice == 0) {
@@ -89,6 +88,9 @@ char check_result(int player_choice, int opponent_choice) {
 	}
 }
 
+/* Converts the opponents win/loss to a loss/win.
+   If this was not done both player's would think
+   they have won/lost. */
 char received_result(char result) {
 	if (result == 'd') {
 		return 'd';
