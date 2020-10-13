@@ -1,21 +1,16 @@
-/** @file   game.c
+/** @file   choice.c
     @author Michael Woodard and Sean Lalor
-    @date   7 Oct 2020
-    @note   does nothing
+    @date   10 Oct 2020
+    @brief  This is used to send/convert the 
+            player's sent/received option.
 */
 
 #include "system.h"
-#include "tinygl.h"
-#include "navswitch.h"
-#include "pacer.h"
 #include "ir_uart.h"
-#include "pio.h"
-#include "../fonts/font3x5_1.h"
-#include "text_output.h"
-#include "game_setup.h"
 
-#define PACER_RATE 500
-
+/* Converts the player's selected option to
+   a character between 'A' and 'K', which is 
+   then sent to the other player. */
 void send_choice(int player_choice) {
 	if (player_choice == 0) {
 		ir_uart_putc('A');
@@ -42,6 +37,9 @@ void send_choice(int player_choice) {
 	}
 }	
 
+/* Converts the received character sent through
+   the send_choice function to an int between 
+   0 and 10. */
 int convert_recieved(char ch) {
 	if (ch == 'A') {
 		return 0;
