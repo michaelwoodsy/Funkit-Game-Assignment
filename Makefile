@@ -42,10 +42,17 @@ pacer.o: ../../utils/pacer.c ../../drivers/avr/system.h ../../drivers/avr/timer.
 	$(CC) -c $(CFLAGS) $< -o $@
 tinygl.o: ../../utils/tinygl.c ../../drivers/avr/system.h ../../drivers/display.h ../../utils/font.h ../../utils/tinygl.h
 	$(CC) -c $(CFLAGS) $< -o $@
-
+text_output.o: text_output.c
+	$(CC) -c $(CFLAGS) $< -o $@
+game_setup.o: game_setup.c
+	$(CC) -c $(CFLAGS) $< -o $@
+choice.o: choice.c
+	$(CC) -c $(CFLAGS) $< -o $@
+result.o: result.c
+	$(CC) -c $(CFLAGS) $< -o $@
 
 # Link: create ELF output file from object files.
-game.out: game.o ir_uart.o pio.o prescale.o system.o timer.o timer0.o usart1.o display.o ledmat.o navswitch.o font.o pacer.o tinygl.o
+game.out: game.o ir_uart.o pio.o prescale.o system.o timer.o timer0.o usart1.o display.o ledmat.o navswitch.o font.o pacer.o tinygl.o text_output.o game_setup.o choice.o result.o
 	$(CC) $(CFLAGS) $^ -o $@ -lm
 	$(SIZE) $@
 # Target: clean project.
